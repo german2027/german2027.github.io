@@ -1,5 +1,5 @@
 ﻿let token = null;
-fetch('https://openai-server-4d3w.onrender.com/checka',
+fetch('https://openai-server-xrvo.onrender.com/checka',
 {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
@@ -45,7 +45,7 @@ const requestFunc = () => {
   sendButton.innerText = 'Einen Moment...';
   let message = { "role": "user", "content": inp.value };
   conversation.push(message);
-  axios.post('https://openai-server-4d3w.onrender.com/api/chat',
+  axios.post('https://openai-server-xrvo.onrender.com/api/chat',
   {
    messages: conversation,
    token: token
