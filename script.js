@@ -9,6 +9,7 @@ fetch('https://openai-server-xrvo.onrender.com/checka',
 .then(data => {
  if (data.success) token = data.token;
  else alert('Sorry.');
+ //else windows.close();
 })
 .catch(error => console.error('Eroare:', error));
 
@@ -58,7 +59,7 @@ const requestFunc = () => {
   })
   .catch(error => {
    console.error("Error request:", error.message);
-   sendButton.innerText = 'Fehler...';
+   sendButton.innerText = 'Eroare API_KEY';
   });
  }
 }
