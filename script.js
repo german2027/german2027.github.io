@@ -45,7 +45,7 @@ const requestFunc = () => {
   sendButton.innerText = 'Einen Moment...';
   let message = { "role": "user", "content": inp.value };
   conversation.push(message);
-  axios.post('https://openai-server-W0YA.onrender.com/api/chat',
+  axios.post('https://openai-server-xrvo.onrender.com/api/chat',
   {
    messages: conversation,
    token: token
@@ -62,4 +62,5 @@ const requestFunc = () => {
   });
  }
 }
+
 
