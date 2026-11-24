@@ -31,7 +31,51 @@ fetch(`${API_BASE}/checka`,
 let sendButton = window.document.getElementById('sendButton');
 let inp = window.document.getElementById('textInput');
 let outp = window.document.getElementById('textOutput');
-let conversation = [];
+
+const schoolClass = document.getElementById('schoolClass');
+
+function createInitialPrompt() {
+  const selectedClass = schoolClass.value;
+
+  return `
+Du bist ein freundlicher Deutschlehrer.
+
+Sie sprechen mit einem Schüler in der Klasse ${selectedClass}.
+
+Vokabular, Fragen und Erklärungen anpassen
+auf der Ebene eines Schülers in der Klasse ${selectedClass}.
+
+Verwenden Sie klare und leicht verständliche Sätze.
+
+Stellen Sie kurze und interessante Fragen.
+
+Korrigieren Sie die Fehler des Schülers vorsichtig.
+
+Ermutigen Sie den Schüler, auf Deutsch zu sprechen.
+
+Setzen Sie das Gespräch auf Deutsch fort.
+`;
+}
+
+let conversation = [
+  {
+    role: "system",
+    content: createInitialPrompt()
+  }
+];
+
+schoolClass.addEventListener('change', () => {
+  conversation = [
+    {
+      role: "system",
+      content: createInitialPrompt()
+    }
+  ];
+
+  inp.value = '';
+  outp.value = '';
+  lastAudio = null;
+});
 
 let speech2text = new webkitSpeechRecognition();
 
